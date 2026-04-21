@@ -3,7 +3,10 @@ import prereqIde from "./prerequisites/ide.md?raw";
 import prereqRuntime from "./prerequisites/runtime.md?raw";
 import prereqTools from "./prerequisites/tools.md?raw";
 import introOverview from "./intro/overview.md?raw";
-import introAwsSetup from "./intro/aws-setup.md?raw";
+import startModernFramework from "./intro/modern-framework.md?raw";
+import startAwsSetup from "./intro/aws-setup.md?raw";
+import springIntro from "./spring-boot/intro.md?raw";
+import springArchitecture from "./spring-boot/architecture.md?raw";
 import springSetup from "./spring-boot/setup.md?raw";
 import springApi from "./spring-boot/api.md?raw";
 import reactSetup from "./react/setup.md?raw";
@@ -42,7 +45,15 @@ export const lectures: Lecture[] = [
     icon: "📋",
     sections: [
       { id: "intro-overview", title: "개요", content: introOverview },
-      { id: "intro-aws-setup", title: "AWS 인프라 셋업", content: introAwsSetup },
+    ],
+  },
+  {
+    id: "start",
+    title: "강의 시작",
+    icon: "🚩",
+    sections: [
+      { id: "start-modern-framework", title: "프레임워크의 핵심 원칙", content: startModernFramework },
+      { id: "start-aws-setup", title: "AWS 인프라 사전 셋업", content: startAwsSetup },
     ],
   },
   {
@@ -50,6 +61,8 @@ export const lectures: Lecture[] = [
     title: "Backend (Spring Boot)",
     icon: "🍃",
     sections: [
+      { id: "spring-intro", title: "Spring Boot란?", content: springIntro },
+      { id: "spring-architecture", title: "핵심 구조", content: springArchitecture },
       { id: "spring-setup", title: "프로젝트 생성", content: springSetup },
       { id: "spring-api", title: "REST API 만들기", content: springApi },
     ],

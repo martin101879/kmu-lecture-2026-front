@@ -4,14 +4,14 @@
   </style>
 
   <!-- User -->
-  <rect x="16" y="60" width="120" height="80" rx="12" fill="#f2f4f6" stroke="#e5e8eb" stroke-width="1.5"/>
-  <text x="76" y="95" text-anchor="middle" font-size="22">👤</text>
-  <text x="76" y="120" text-anchor="middle" font-size="13" font-weight="600" fill="#191f28">사용자</text>
+  <rect x="16" y="44" width="140" height="112" rx="12" fill="#f2f4f6" stroke="#e5e8eb" stroke-width="1.5"/>
+  <text x="86" y="78" text-anchor="middle" font-size="20">👤</text>
+  <text x="86" y="100" text-anchor="middle" font-size="14" font-weight="700" fill="#191f28">사용자</text>
+  <text x="86" y="118" text-anchor="middle" font-size="11" fill="#4e5968">브라우저</text>
 
   <!-- Arrow 1 -->
-  <line x1="140" y1="100" x2="190" y2="100" stroke="#8b95a1" stroke-width="1.5" stroke-dasharray="6 3"/>
+  <line x1="160" y1="100" x2="190" y2="100" stroke="#8b95a1" stroke-width="1.5" stroke-dasharray="6 3"/>
   <polygon points="190,95 200,100 190,105" fill="#8b95a1"/>
-  <text x="170" y="88" text-anchor="middle" font-size="10" fill="#8b95a1">브라우저</text>
 
   <!-- Frontend -->
   <rect x="204" y="44" width="140" height="112" rx="12" fill="#EBF4FF" stroke="#3182f6" stroke-width="1.5"/>
