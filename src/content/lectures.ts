@@ -9,6 +9,7 @@ import springIntro from "./spring-boot/intro.md?raw";
 import springArchitecture from "./spring-boot/architecture.md?raw";
 import springSetup from "./spring-boot/setup.md?raw";
 import springApi from "./spring-boot/api.md?raw";
+import springReference from "./spring-boot/reference.md?raw";
 import reactSetup from "./react/setup.md?raw";
 import reactComponent from "./react/component.md?raw";
 import awsOverview from "./aws/overview.md?raw";
@@ -65,6 +66,7 @@ export const lectures: Lecture[] = [
       { id: "spring-architecture", title: "핵심 구조", content: springArchitecture },
       { id: "spring-setup", title: "프로젝트 생성", content: springSetup },
       { id: "spring-api", title: "REST API 만들기", content: springApi },
+      { id: "spring-reference", title: "레퍼런스", content: springReference },
     ],
   },
   {
