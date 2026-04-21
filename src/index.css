@@ -1,43 +1,42 @@
 :root {
-  --sidebar-width: 272px;
-  --sidebar-bg: linear-gradient(180deg, #0f0f1a 0%, #141422 100%);
-  --sidebar-surface: #0f0f1a;
-  --sidebar-text: #8b8fa3;
-  --sidebar-text-hover: #e2e4f0;
-  --sidebar-active: #818cf8;
-  --sidebar-active-bg: rgba(129, 140, 248, 0.08);
-  --sidebar-group-title: #4a4d6a;
-  --sidebar-border: rgba(255, 255, 255, 0.06);
+  --sidebar-width: 260px;
+  --sidebar-bg: #ffffff;
+  --sidebar-text: #666d80;
+  --sidebar-text-hover: #191f28;
+  --sidebar-active: #3182f6;
+  --sidebar-active-bg: rgba(49, 130, 246, 0.06);
+  --sidebar-group-title: #8b95a1;
+  --sidebar-border: #f2f4f6;
 
-  --content-bg: #fafbfc;
-  --content-surface: #ffffff;
-  --content-text: #1a1a2e;
-  --content-text-secondary: #5c5f77;
-  --content-border: #e8eaef;
-  --content-code-bg: #f0f2f5;
-  --accent: #818cf8;
-  --accent-soft: rgba(129, 140, 248, 0.1);
-  --accent-glow: rgba(129, 140, 248, 0.2);
+  --content-bg: #ffffff;
+  --content-text: #191f28;
+  --content-text-secondary: #4e5968;
+  --content-border: #e5e8eb;
+  --content-code-bg: #f2f4f6;
+  --accent: #3182f6;
+  --accent-soft: rgba(49, 130, 246, 0.06);
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
-  --radius: 10px;
+  --radius: 8px;
 
-  --sans: "Pretendard", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --mono: "JetBrains Mono", "Fira Code", ui-monospace, "Cascadia Code", Consolas, monospace;
+  --sans: "Pretendard", -apple-system, "Apple SD Gothic Neo", system-ui, sans-serif;
+  --mono: "JetBrains Mono", "Fira Code", ui-monospace, Consolas, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --content-bg: #111118;
-    --content-surface: #1a1a24;
-    --content-text: #e2e4f0;
-    --content-text-secondary: #9395a8;
-    --content-border: #2a2a3a;
-    --content-code-bg: #15151f;
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+    --sidebar-bg: #1b1d1f;
+    --sidebar-text: #8b95a1;
+    --sidebar-text-hover: #e5e8eb;
+    --sidebar-active-bg: rgba(49, 130, 246, 0.12);
+    --sidebar-group-title: #6b7684;
+    --sidebar-border: #2b2d31;
+
+    --content-bg: #212124;
+    --content-text: #e5e8eb;
+    --content-text-secondary: #8b95a1;
+    --content-border: #2b2d31;
+    --content-code-bg: #2b2d31;
+    --accent-soft: rgba(49, 130, 246, 0.12);
   }
 }
 
@@ -51,14 +50,14 @@ body {
   font-family: var(--sans);
   background: var(--content-bg);
   color: var(--content-text);
-  line-height: 1.7;
+  line-height: 1.75;
+  font-size: 15px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-track {
@@ -66,15 +65,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.18);
+  background: var(--content-border);
+  border-radius: 2px;
 }
 
 ::selection {
-  background: var(--accent-glow);
-  color: var(--content-text);
+  background: rgba(49, 130, 246, 0.15);
 }
