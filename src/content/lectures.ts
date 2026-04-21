@@ -30,9 +30,9 @@ AWS 계정을 생성하고 **결제 카드를 등록**해주세요.
 
 - 가입: [https://aws.amazon.com](https://aws.amazon.com) → "AWS 계정 생성"
 - 카드 등록이 필요하지만, 수업 시간 내 사용 비용은 **커피 한 잔 값 이하**입니다
-- 프리티어를 활용하면 대부분의 비용이 발생하지 않습니다
+- 신규 가입 계정에 한해 **1년간 프리티어**가 제공되므로, 대부분의 비용이 발생하지 않습니다
 
-> **주의**: 가입 시 리전(Region)은 \`아시아 태평양 (서울) ap-northeast-2\`로 설정해주세요.
+> **주의**: 가입 후 콘솔 로그인 시 우측 상단에서 리전(Region)을 \`아시아 태평양 (서울) ap-northeast-2\`로 설정해주세요.
 
 ## GitHub 계정
 
@@ -44,6 +44,9 @@ AWS 계정을 생성하고 **결제 카드를 등록**해주세요.
         id: "prereq-ide",
         title: "IDE 설치",
         content: `# IDE 설치
+
+> **중요**: 모든 IDE는 설치 후 반드시 실행하여 정상적으로 동작하는지 확인해주세요.
+> 강의 당일에 설치 문제로 시간을 소모하지 않도록 사전에 점검하는 것이 중요합니다.
 
 ## VS Code
 
@@ -79,6 +82,7 @@ IntelliJ와 동일하게 **30일 무료 체험판** 또는 **교육용 라이선
 
 > JetBrains 교육용 라이선스는 IntelliJ, DataGrip을 포함한 모든 JetBrains 제품에 적용됩니다.
 > 한 번만 신청하면 됩니다.
+
 `,
       },
       {
@@ -121,10 +125,19 @@ java -version
 
 React 개발에 필요합니다.
 
-### Windows
+> **권장**: Node.js는 직접 설치보다 **nvm(Node Version Manager)** 을 통해 설치하는 것을 권장합니다.
+> nvm을 사용하면 여러 버전의 Node.js를 자유롭게 전환할 수 있어 프로젝트별 버전 관리가 편리합니다.
 
-1. [https://nodejs.org](https://nodejs.org) 에서 **LTS 버전** 다운로드
-2. \`.msi\` 설치 파일 실행 (기본 옵션 그대로 진행)
+### Windows (nvm-windows)
+
+1. [https://github.com/coreybutler/nvm-windows/releases](https://github.com/coreybutler/nvm-windows/releases) 에서 \`nvm-setup.exe\` 다운로드 및 설치
+2. 설치 후 터미널에서:
+\`\`\`powershell
+nvm install 22
+nvm use 22
+\`\`\`
+
+직접 설치를 원하는 경우 [https://nodejs.org](https://nodejs.org) 에서 LTS 버전 \`.msi\` 파일을 다운로드하여 설치합니다.
 
 설치 확인:
 \`\`\`powershell
@@ -132,13 +145,19 @@ node -v
 npm -v
 \`\`\`
 
-### macOS
+### macOS (nvm)
 
 \`\`\`bash
-brew install node
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 \`\`\`
 
-또는 [https://nodejs.org](https://nodejs.org) 에서 \`.pkg\` 파일을 다운로드하여 설치합니다.
+터미널을 재시작한 후:
+\`\`\`bash
+nvm install 22
+nvm use 22
+\`\`\`
+
+직접 설치를 원하는 경우 \`brew install node\` 또는 [https://nodejs.org](https://nodejs.org) 에서 설치합니다.
 
 설치 확인:
 \`\`\`bash
