@@ -1,0 +1,149 @@
+.markdownBody h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--content-border);
+  letter-spacing: -0.4px;
+  color: var(--content-text);
+}
+
+.markdownBody h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 40px;
+  margin-bottom: 12px;
+  letter-spacing: -0.2px;
+  color: var(--content-text);
+}
+
+.markdownBody h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  color: var(--sidebar-active);
+  padding: 8px 14px;
+  background: var(--accent-soft);
+  border-left: 3px solid var(--sidebar-active);
+  border-radius: 0 6px 6px 0;
+}
+
+.markdownBody p {
+  margin-bottom: 12px;
+  color: var(--content-text-secondary);
+  line-height: 1.8;
+  font-size: 14.5px;
+}
+
+.markdownBody ul,
+.markdownBody ol {
+  margin-bottom: 12px;
+  padding-left: 22px;
+}
+
+.markdownBody li {
+  margin-bottom: 4px;
+  color: var(--content-text-secondary);
+  font-size: 14.5px;
+  line-height: 1.75;
+}
+
+.markdownBody li::marker {
+  color: var(--sidebar-active);
+}
+
+.markdownBody img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  margin: 16px 0;
+  border: 1px solid var(--content-border);
+}
+
+.markdownBody code {
+  font-family: var(--mono);
+  font-size: 13px;
+  padding: 2px 6px;
+  background: var(--content-code-bg);
+  border-radius: 4px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.markdownBody pre {
+  border-radius: var(--radius) !important;
+  box-shadow: none;
+  border: none;
+  background: none !important;
+}
+
+.markdownBody pre code {
+  padding: 0;
+  background: none;
+  color: inherit;
+  font-weight: 400;
+}
+
+.markdownBody blockquote {
+  margin: 16px 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.markdownBody blockquote p {
+  margin-bottom: 4px;
+  color: var(--content-text);
+  font-size: 13.5px;
+}
+
+.markdownBody table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 14px;
+}
+
+.markdownBody th,
+.markdownBody td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--content-border);
+}
+
+.markdownBody th {
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: var(--sidebar-group-title);
+  border-bottom: 2px solid var(--content-border);
+}
+
+.markdownBody td {
+  color: var(--content-text-secondary);
+}
+
+.markdownBody strong {
+  color: var(--content-text);
+  font-weight: 600;
+}
+
+.markdownBody a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.markdownBody a:hover {
+  text-decoration: underline;
+}
+
+.markdownBody hr {
+  border: none;
+  height: 1px;
+  background: var(--content-border);
+  margin: 28px 0;
+}

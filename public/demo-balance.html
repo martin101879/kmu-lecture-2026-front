@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>밸런스 게임 데모</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Pretendard', -apple-system, system-ui, sans-serif;
+      background: #f8f9fa;
+      color: #191f28;
+      min-height: 100vh;
+    }
+
+    .header {
+      background: #fff;
+      border-bottom: 1px solid #e5e8eb;
+      padding: 16px 24px;
+      text-align: center;
+    }
+    .header h1 { font-size: 20px; font-weight: 700; }
+    .header p { font-size: 13px; color: #8b95a1; margin-top: 4px; }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    /* === Game List === */
+    .game-list { display: flex; flex-direction: column; gap: 16px; }
+
+    .game-card {
+      background: #fff;
+      border-radius: 14px;
+      border: 1px solid #e5e8eb;
+      padding: 24px;
+      cursor: pointer;
+      transition: box-shadow 0.2s;
+    }
+    .game-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .game-card-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      text-align: center;
+      color: #4e5968;
+    }
+
+    .vs-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .option-card {
+      flex: 1;
+      padding: 28px 16px;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 2px solid transparent;
+    }
+    .option-a {
+      background: #EBF4FF;
+      color: #3182f6;
+    }
+    .option-a:hover, .option-a.selected {
+      border-color: #3182f6;
+      box-shadow: 0 4px 12px rgba(49, 130, 246, 0.2);
+    }
+    .option-b {
+      background: #FFF0F0;
+      color: #f04452;
+    }
+    .option-b:hover, .option-b.selected {
+      border-color: #f04452;
+      box-shadow: 0 4px 12px rgba(240, 68, 82, 0.2);
+    }
+
+    .vs-badge {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #191f28;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    /* === Result === */
+    .result-bar {
+      margin-top: 20px;
+      display: none;
+    }
+    .result-bar.show { display: block; }
+
+    .bar-container {
+      display: flex;
+      height: 36px;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+    .bar-a {
+      background: #3182f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      transition: width 0.6s ease;
+    }
+    .bar-b {
+      background: #f04452;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      transition: width 0.6s ease;
+    }
+
+    .result-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #8b95a1;
+    }
+
+    .vote-count {
+      text-align: center;
+      margin-top: 8px;
+      font-size: 12px;
+      color: #8b95a1;
+    }
+
+    /* === Create Form === */
+    .create-section {
+      margin-top: 32px;
+      background: #fff;
+      border-radius: 14px;
+      border: 1px solid #e5e8eb;
+      padding: 24px;
+    }
+    .create-section h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .form-group { margin-bottom: 14px; }
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #4e5968;
+      margin-bottom: 6px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid #e5e8eb;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .form-group input:focus { border-color: #3182f6; }
+
+    .options-row {
+      display: flex;
+      gap: 12px;
+    }
+    .options-row .form-group { flex: 1; }
+
+    .btn-create {
+      width: 100%;
+      padding: 12px;
+      background: #3182f6;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.15s;
+      margin-top: 4px;
+    }
+    .btn-create:hover { background: #1b6ae0; }
+
+    /* === Comments (실습 결과) === */
+    .comments-section {
+      margin-top: 16px;
+      border-top: 1px solid #f2f4f6;
+      padding-top: 14px;
+      display: none;
+    }
+    .comments-section.show { display: block; }
+
+    .comments-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: #8b95a1;
+      margin-bottom: 10px;
+    }
+
+    .comment {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      align-items: flex-start;
+    }
+    .comment-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #f2f4f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      flex-shrink: 0;
+    }
+    .comment-body {
+      flex: 1;
+    }
+    .comment-author {
+      font-size: 12px;
+      font-weight: 600;
+      color: #191f28;
+    }
+    .comment-choice {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 1px 6px;
+      border-radius: 3px;
+      margin-left: 6px;
+    }
+    .choice-a { background: #EBF4FF; color: #3182f6; }
+    .choice-b { background: #FFF0F0; color: #f04452; }
+    .comment-text {
+      font-size: 13px;
+      color: #4e5968;
+      margin-top: 2px;
+      line-height: 1.5;
+    }
+    .comment-time {
+      font-size: 11px;
+      color: #8b95a1;
+      margin-top: 2px;
+    }
+
+    .comment-input-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .comment-input-row input {
+      flex: 1;
+      padding: 8px 12px;
+      border: 1px solid #e5e8eb;
+      border-radius: 6px;
+      font-size: 13px;
+      font-family: inherit;
+      outline: none;
+    }
+    .comment-input-row input:focus { border-color: #3182f6; }
+    .btn-comment {
+      padding: 8px 16px;
+      background: #191f28;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .btn-comment:hover { background: #333d4b; }
+
+    .section-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #8b95a1;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>밸런스 게임</h1>
+    <p>당신의 선택은?</p>
+  </div>
+
+  <div class="container">
+    <div class="section-title">진행 중인 게임</div>
+    <div class="game-list" id="gameList"></div>
+
+    <div class="create-section">
+      <h2>새 게임 만들기</h2>
+      <div class="form-group">
+        <label>주제</label>
+        <input type="text" id="title" placeholder="예: 오늘 점심 뭐 먹지?">
+      </div>
+      <div class="options-row">
+        <div class="form-group">
+          <label>선택지 A</label>
+          <input type="text" id="optionA" placeholder="짜장면">
+        </div>
+        <div class="form-group">
+          <label>선택지 B</label>
+          <input type="text" id="optionB" placeholder="짬뽕">
+        </div>
+      </div>
+      <button class="btn-create" onclick="createGame()">게임 만들기</button>
+    </div>
+  </div>
+
+  <script>
+    const games = [
+      { id: 1, title: "점심 메뉴 고르기", a: "짜장면", b: "짬뽕", votesA: 127, votesB: 98, voted: 'a',
+        comments: [
+          { author: "김민수", choice: "a", text: "짜장면은 실패가 없다", time: "3분 전" },
+          { author: "이서연", choice: "b", text: "짬뽕 국물이 최고.. 특히 비 오는 날", time: "5분 전" },
+          { author: "박준호", choice: "a", text: "간짜장 먹어본 사람?", time: "12분 전" },
+        ]},
+      { id: 2, title: "여행 스타일", a: "계획 여행", b: "즉흥 여행", votesA: 84, votesB: 156, voted: 'b',
+        comments: [
+          { author: "정다은", choice: "b", text: "즉흥이 진짜 여행이지!", time: "1분 전" },
+          { author: "최현우", choice: "a", text: "계획 없으면 불안해서 못 감", time: "8분 전" },
+        ]},
+      { id: 3, title: "개발할 때", a: "다크 모드", b: "라이트 모드", votesA: 203, votesB: 41, voted: false, comments: [] },
+    ];
+
+    function renderGames() {
+      const list = document.getElementById('gameList');
+      list.innerHTML = games.map(g => {
+        const total = g.votesA + g.votesB;
+        const pctA = total > 0 ? Math.round(g.votesA / total * 100) : 50;
+        const pctB = 100 - pctA;
+        return `
+          <div class="game-card">
+            <div class="game-card-title">${g.title}</div>
+            <div class="vs-container">
+              <div class="option-card option-a ${g.voted === 'a' ? 'selected' : ''}" onclick="vote(${g.id}, 'a')">
+                ${g.a}
+              </div>
+              <div class="vs-badge">VS</div>
+              <div class="option-card option-b ${g.voted === 'b' ? 'selected' : ''}" onclick="vote(${g.id}, 'b')">
+                ${g.b}
+              </div>
+            </div>
+            <div class="result-bar ${g.voted ? 'show' : ''}">
+              <div class="bar-container">
+                <div class="bar-a" style="width: ${pctA}%">${pctA}%</div>
+                <div class="bar-b" style="width: ${pctB}%">${pctB}%</div>
+              </div>
+              <div class="result-labels">
+                <span>${g.a}</span>
+                <span>${g.b}</span>
+              </div>
+              <div class="vote-count">${total}명 참여</div>
+            </div>
+            <div class="comments-section ${g.voted ? 'show' : ''}">
+              <div class="comments-title">댓글 ${g.comments.length}개</div>
+              ${g.comments.map(c => `
+                <div class="comment">
+                  <div class="comment-avatar">😀</div>
+                  <div class="comment-body">
+                    <div>
+                      <span class="comment-author">${c.author}</span>
+                      <span class="comment-choice ${c.choice === 'a' ? 'choice-a' : 'choice-b'}">${c.choice === 'a' ? g.a : g.b}</span>
+                    </div>
+                    <div class="comment-text">${c.text}</div>
+                    <div class="comment-time">${c.time}</div>
+                  </div>
+                </div>
+              `).join('')}
+              <div class="comment-input-row">
+                <input type="text" id="author-${g.id}" placeholder="닉네임" style="flex: 0 0 100px;">
+                <input type="text" id="comment-${g.id}" placeholder="댓글을 입력하세요..." onkeydown="if(event.key==='Enter')addComment(${g.id})">
+                <button class="btn-comment" onclick="addComment(${g.id})">등록</button>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function vote(id, choice) {
+      const game = games.find(g => g.id === id);
+      if (game.voted) return;
+      game.voted = choice;
+      if (choice === 'a') game.votesA++;
+      else game.votesB++;
+      renderGames();
+    }
+
+    function addComment(id) {
+      const authorInput = document.getElementById('author-' + id);
+      const commentInput = document.getElementById('comment-' + id);
+      const author = authorInput.value.trim() || '익명';
+      const text = commentInput.value.trim();
+      if (!text) return;
+      const game = games.find(g => g.id === id);
+      game.comments.unshift({
+        author: author,
+        choice: game.voted,
+        text: text,
+        time: "방금 전"
+      });
+      commentInput.value = '';
+      renderGames();
+    }
+
+    function createGame() {
+      const title = document.getElementById('title').value;
+      const a = document.getElementById('optionA').value;
+      const b = document.getElementById('optionB').value;
+      if (!title || !a || !b) return;
+      games.unshift({
+        id: Date.now(), title, a, b, votesA: 0, votesB: 0, voted: false
+      });
+      document.getElementById('title').value = '';
+      document.getElementById('optionA').value = '';
+      document.getElementById('optionB').value = '';
+      renderGames();
+    }
+
+    renderGames();
+  </script>
+</body>
+</html>

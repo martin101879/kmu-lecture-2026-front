@@ -1,29 +1,32 @@
+import { useParams } from "react-router";
 import { lectures } from "../content/lectures";
+import styles from "./Sidebar.module.css";
 
 interface SidebarProps {
-  activeSectionId: string;
   onSelect: (sectionId: string) => void;
 }
 
-export default function Sidebar({ activeSectionId, onSelect }: SidebarProps) {
+export default function Sidebar({ onSelect }: SidebarProps) {
+  const { sectionId: activeSectionId } = useParams();
+
   return (
-    <aside className="sidebar">
-      <div className="sidebar-header">
-        <h1 className="sidebar-title">KMU Capstone</h1>
-        <p className="sidebar-subtitle">캡스톤 디자인 개발 실습</p>
+    <aside className={styles.sidebar}>
+      <div className={styles.header}>
+        <h1 className={styles.title}>KMU Capstone</h1>
+        <p className={styles.subtitle}>캡스톤 디자인 개발 실습</p>
       </div>
-      <nav className="sidebar-nav">
+      <nav className={styles.nav}>
         {lectures.map((lecture) => (
-          <div key={lecture.id} className="nav-group">
-            <div className="nav-group-title">
-              <span className="nav-icon">{lecture.icon}</span>
+          <div key={lecture.id} className={styles.group}>
+            <div className={styles.groupTitle}>
+              <span className={styles.icon}>{lecture.icon}</span>
               {lecture.title}
             </div>
-            <ul className="nav-items">
+            <ul className={styles.items}>
               {lecture.sections.map((section) => (
                 <li key={section.id}>
                   <button
-                    className={`nav-item ${activeSectionId === section.id ? "active" : ""}`}
+                    className={`${styles.item} ${activeSectionId === section.id ? styles.active : ""}`}
                     onClick={() => onSelect(section.id)}
                   >
                     {section.title}
