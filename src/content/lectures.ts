@@ -13,6 +13,223 @@ export interface Lecture {
 
 export const lectures: Lecture[] = [
   {
+    id: "prerequisites",
+    title: "사전 준비",
+    icon: "🔧",
+    sections: [
+      {
+        id: "prereq-accounts",
+        title: "계정 만들기",
+        content: `# 계정 만들기
+
+강의 진행을 위해 아래 서비스의 계정이 필요합니다.
+
+## AWS 계정
+
+AWS 계정을 생성하고 **결제 카드를 등록**해주세요.
+
+- 가입: [https://aws.amazon.com](https://aws.amazon.com) → "AWS 계정 생성"
+- 카드 등록이 필요하지만, 수업 시간 내 사용 비용은 **커피 한 잔 값 이하**입니다
+- 프리티어를 활용하면 대부분의 비용이 발생하지 않습니다
+
+> **주의**: 가입 시 리전(Region)은 \`아시아 태평양 (서울) ap-northeast-2\`로 설정해주세요.
+
+## GitHub 계정
+
+- 가입: [https://github.com](https://github.com) → "Sign up"
+- 이미 계정이 있다면 그대로 사용하시면 됩니다
+`,
+      },
+      {
+        id: "prereq-ide",
+        title: "IDE 설치",
+        content: `# IDE 설치
+
+## VS Code
+
+프론트엔드(React) 개발에 사용합니다.
+
+- 다운로드: [https://code.visualstudio.com](https://code.visualstudio.com)
+- Windows, macOS 모두 설치 파일 다운로드 후 실행하면 됩니다
+
+## IntelliJ IDEA
+
+백엔드(Spring Boot) 개발에 사용합니다.
+
+- 다운로드: [https://www.jetbrains.com/idea/download](https://www.jetbrains.com/idea/download)
+
+아래 두 가지 방법 중 하나를 선택하세요:
+
+| 방법 | 설명 |
+|------|------|
+| **30일 무료 체험판** | Ultimate 버전을 바로 설치하고 Free Trial로 시작 |
+| **교육용 라이선스** | \`.ac.kr\` 학교 이메일로 인증하면 졸업 전까지 무료 사용 가능 |
+
+- 교육용 라이선스 신청: [https://www.jetbrains.com/community/education](https://www.jetbrains.com/community/education)
+
+> 우선 **30일 무료 체험판**으로 설치해오시고, 이후 교육용 라이선스를 신청해서 정식 버전으로 전환하시면 됩니다.
+
+## DataGrip
+
+데이터베이스 관리 도구입니다.
+
+- 다운로드: [https://www.jetbrains.com/datagrip/download](https://www.jetbrains.com/datagrip/download)
+
+IntelliJ와 동일하게 **30일 무료 체험판** 또는 **교육용 라이선스**로 사용할 수 있습니다.
+
+> JetBrains 교육용 라이선스는 IntelliJ, DataGrip을 포함한 모든 JetBrains 제품에 적용됩니다.
+> 한 번만 신청하면 됩니다.
+`,
+      },
+      {
+        id: "prereq-runtime",
+        title: "런타임 설치",
+        content: `# 런타임 설치
+
+## Java 21 이상
+
+Spring Boot 실행에 필요합니다.
+
+### Windows
+
+1. [https://adoptium.net](https://adoptium.net) 에서 **Temurin JDK 21** 다운로드
+2. \`.msi\` 설치 파일 실행
+3. 설치 중 **"Set JAVA_HOME variable"** 옵션을 반드시 체크
+
+설치 확인:
+\`\`\`powershell
+java -version
+\`\`\`
+
+### macOS
+
+Homebrew를 사용합니다:
+\`\`\`bash
+brew install openjdk@21
+\`\`\`
+
+또는 [https://adoptium.net](https://adoptium.net) 에서 \`.pkg\` 파일을 다운로드하여 설치합니다.
+
+설치 확인:
+\`\`\`bash
+java -version
+\`\`\`
+
+---
+
+## Node.js 22 이상
+
+React 개발에 필요합니다.
+
+### Windows
+
+1. [https://nodejs.org](https://nodejs.org) 에서 **LTS 버전** 다운로드
+2. \`.msi\` 설치 파일 실행 (기본 옵션 그대로 진행)
+
+설치 확인:
+\`\`\`powershell
+node -v
+npm -v
+\`\`\`
+
+### macOS
+
+\`\`\`bash
+brew install node
+\`\`\`
+
+또는 [https://nodejs.org](https://nodejs.org) 에서 \`.pkg\` 파일을 다운로드하여 설치합니다.
+
+설치 확인:
+\`\`\`bash
+node -v
+npm -v
+\`\`\`
+`,
+      },
+      {
+        id: "prereq-tools",
+        title: "개발 도구 설치",
+        content: `# 개발 도구 설치
+
+## Git
+
+소스 코드 버전 관리 도구입니다.
+
+### Windows
+
+1. [https://git-scm.com/download/win](https://git-scm.com/download/win) 에서 다운로드
+2. 설치 파일 실행 (기본 옵션 그대로 진행)
+
+설치 확인:
+\`\`\`powershell
+git --version
+\`\`\`
+
+### macOS
+
+macOS에는 Xcode Command Line Tools에 Git이 포함되어 있습니다:
+\`\`\`bash
+git --version
+\`\`\`
+
+설치되어 있지 않다면:
+\`\`\`bash
+xcode-select --install
+\`\`\`
+
+또는 Homebrew로 최신 버전을 설치할 수 있습니다:
+\`\`\`bash
+brew install git
+\`\`\`
+
+---
+
+## Docker Desktop
+
+컨테이너 기반 개발 및 배포에 사용합니다.
+
+### Windows
+
+1. [https://www.docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop) 에서 **Docker Desktop for Windows** 다운로드
+2. 설치 파일 실행
+3. 설치 완료 후 **재부팅**이 필요할 수 있습니다
+4. WSL 2 백엔드를 사용하므로, 설치 중 WSL 2 설치 안내가 나오면 따라 진행하세요
+
+설치 확인:
+\`\`\`powershell
+docker --version
+\`\`\`
+
+### macOS
+
+1. [https://www.docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop) 에서 **Docker Desktop for Mac** 다운로드
+2. \`.dmg\` 파일 실행 후 Applications 폴더로 드래그
+3. Docker Desktop 실행
+
+> Apple Silicon(M1/M2/M3/M4) Mac은 **Apple Silicon** 버전을, Intel Mac은 **Intel** 버전을 다운로드하세요.
+
+설치 확인:
+\`\`\`bash
+docker --version
+\`\`\`
+
+---
+
+## PowerShell (Windows만 해당)
+
+Windows에서 PowerShell이 설치되어 있지 않은 경우에만 설치가 필요합니다.
+
+확인 방법 - 시작 메뉴에서 "PowerShell"을 검색하여 실행되면 이미 설치되어 있는 것입니다.
+
+설치되어 있지 않은 경우:
+1. [https://github.com/PowerShell/PowerShell/releases](https://github.com/PowerShell/PowerShell/releases) 에서 최신 \`.msi\` 파일 다운로드
+2. 설치 파일 실행
+`,
+      },
+    ],
+  },
+  {
     id: "intro",
     title: "강의 소개",
     icon: "📋",
