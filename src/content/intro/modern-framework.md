@@ -9,12 +9,12 @@
 | | 라이브러리 | 프레임워크 |
 |---|---|---|
 | 주도권 | 개발자가 필요할 때 호출 | 프레임워크가 흐름을 제어, 개발자는 규칙에 맞춰 코드 작성 |
-| 예시 | JDBC, Axios | Spring Boot, React |
+| 예시 | JDBC 드라이버, Axios | Spring Boot, React |
 
 라이브러리는 **개발자가 호출**합니다:
 
 ```java
-// JDBC - 개발자가 직접 연결하고, 쿼리를 실행하고, 결과를 처리
+// JDBC 드라이버 - 개발자가 직접 연결하고, 쿼리를 실행하고, 결과를 처리
 Connection conn = DriverManager.getConnection(url);
 PreparedStatement stmt = conn.prepareStatement("SELECT * FROM game");
 ResultSet rs = stmt.executeQuery();

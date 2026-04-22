@@ -17,12 +17,13 @@ export default function MarkdownRenderer({ content }: MarkdownRendererProps) {
           code({ className, children, ...props }) {
             const match = /language-(\w+)/.exec(className || "");
             const codeString = String(children).replace(/\n$/, "");
+            const isBlock = String(children).includes("\n");
 
-            if (match) {
+            if (match || isBlock) {
               return (
                 <SyntaxHighlighter
                   style={oneDark}
-                  language={match[1]}
+                  language={match ? match[1] : "text"}
                   PreTag="div"
                   customStyle={{
                     borderRadius: "8px",

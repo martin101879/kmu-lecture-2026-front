@@ -27,11 +27,11 @@
 ./gradlew bootJar
 
 # 2. EC2에 파일 전송
-scp build/libs/capstone-0.0.1-SNAPSHOT.jar ec2-user@<IP>:~/
+scp build/libs/balance-api-0.0.1-SNAPSHOT.jar ec2-user@<IP>:~/
 
 # 3. EC2에서 실행
 ssh ec2-user@<IP>
-nohup java -jar capstone-0.0.1-SNAPSHOT.jar &
+nohup java -jar balance-api-0.0.1-SNAPSHOT.jar &
 ```
 
 > **Tip**: 실무에서는 Docker + ECS 또는 GitHub Actions CI/CD를 사용합니다.

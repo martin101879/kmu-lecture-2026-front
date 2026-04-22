@@ -10,6 +10,15 @@
 - 다운로드: [https://code.visualstudio.com](https://code.visualstudio.com)
 - Windows, macOS 모두 설치 파일 다운로드 후 실행하면 됩니다
 
+### VS Code 확장 설치
+
+설치 후 아래 확장을 추가해주세요. API 테스트에 사용합니다.
+
+1. VS Code 실행 → 좌측 **Extensions** 아이콘 클릭 (또는 `Ctrl+Shift+X`)
+2. **REST Client** 검색 → **Huachao Mao** 제작 확장 설치
+
+> REST Client를 사용하면 `.http` 파일에서 바로 API 요청을 보내고 응답을 확인할 수 있습니다. 별도의 API 테스트 도구(Postman 등)를 설치할 필요가 없습니다.
+
 ## IntelliJ IDEA
 
 백엔드(Spring Boot) 개발에 사용합니다.
