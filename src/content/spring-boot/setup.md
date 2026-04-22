@@ -16,6 +16,18 @@
   - Spring Data JPA
   - H2 Database
 
+### Starter란?
+
+Spring Initializr에서 선택한 Dependencies는 `build.gradle`에 **Starter** 의존성으로 추가됩니다. Starter는 특정 기능에 필요한 라이브러리들을 하나로 묶어놓은 패키지입니다.
+
+| Starter | 포함되는 것 | 역할 |
+|---------|-----------|------|
+| `spring-boot-starter-web` | Spring MVC, 내장 Tomcat, Jackson(JSON) | REST API 개발에 필요한 모든 것 |
+| `spring-boot-starter-data-jpa` | Spring Data JPA, Hibernate | DB 접근 + 자동 쿼리 생성 |
+| `mysql-connector-j` | MySQL JDBC 드라이버 | MySQL 연결 |
+
+Starter 덕분에 개발자가 개별 라이브러리를 하나씩 찾아서 버전을 맞출 필요 없이, Starter 하나만 추가하면 호환되는 라이브러리들이 자동으로 포함됩니다.
+
 ## Gradle
 
 프로젝트를 생성하면 Gradle이 기본으로 포함되어 있습니다. 별도 설치가 필요 없습니다.

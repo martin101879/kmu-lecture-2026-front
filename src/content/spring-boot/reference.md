@@ -1,4 +1,4 @@
-# 레퍼런스
+# 어노테이션 & Spring Data JPA 가이드
 
 ## 주요 어노테이션
 
@@ -37,9 +37,9 @@ Controller에서 URL과 메서드를 연결하는 어노테이션입니다.
 | `@PathVariable` | URL 경로 변수 | `/api/games/{id}` → `@PathVariable Long id` |
 | `@RequestParam` | 쿼리 파라미터 | `?page=1` → `@RequestParam int page` |
 
-### JPA 관련
+### JPA 관련 (Entity)
 
-Entity 클래스에서 사용하는 어노테이션입니다.
+Entity 클래스에서 사용하는 어노테이션입니다. (JPA 표준 스펙)
 
 | 어노테이션 | 설명 |
 |-----------|------|
@@ -50,9 +50,9 @@ Entity 클래스에서 사용하는 어노테이션입니다.
 | `@ManyToOne` | 다대일 관계 (예: 댓글 → 게임) |
 | `@OneToMany` | 일대다 관계 (예: 게임 → 댓글 목록) |
 
-## JPA 기본 제공 메서드
+## Spring Data JPA 기본 제공 메서드
 
-`JpaRepository`를 상속하면 별도 구현 없이 아래 메서드를 사용할 수 있습니다.
+`JpaRepository`를 상속하면 별도 구현 없이 아래 메서드를 사용할 수 있습니다. (Spring Data JPA가 자동 생성)
 
 ```java
 public interface GameRepository extends JpaRepository<Game, Long> {
@@ -86,7 +86,7 @@ public interface GameRepository extends JpaRepository<Game, Long> {
 
 ### 쿼리 메서드 (메서드 이름 기반)
 
-메서드 이름을 규칙에 맞게 작성하면 JPA가 자동으로 쿼리를 생성합니다.
+메서드 이름을 규칙에 맞게 작성하면 Spring Data JPA가 자동으로 쿼리를 생성합니다.
 
 ```java
 public interface CommentRepository extends JpaRepository<Comment, Long> {
@@ -109,3 +109,26 @@ public interface CommentRepository extends JpaRepository<Comment, Long> {
 | `findBy...Or` | `findByTitleOrAuthor(...)` | `WHERE title = ? OR author = ?` |
 | `OrderBy...Desc` | `findByGameIdOrderByCreatedAtDesc(...)` | `ORDER BY created_at DESC` |
 | `countBy` | `countByGameId(Long gameId)` | `SELECT COUNT(*) WHERE game_id = ?` |
+
+### @Query (직접 쿼리 작성)
+
+메서드 이름 규칙으로 표현하기 어려운 복잡한 쿼리는 `@Query`로 직접 작성할 수 있습니다.
+
+```java
+public interface GameRepository extends JpaRepository<Game, Long> {
+
+    // JPQL (엔티티 기준)
+    @Query("SELECT g FROM Game g WHERE g.countA + g.countB > :minVotes ORDER BY g.createdAt DESC")
+    List<Game> findPopularGames(@Param("minVotes") int minVotes);
+
+    // Native SQL (테이블 기준)
+    @Query(value = "SELECT * FROM game WHERE count_a + count_b > :minVotes", nativeQuery = true)
+    List<Game> findPopularGamesNative(@Param("minVotes") int minVotes);
+}
+```
+
+| 속성 | 설명 |
+|------|------|
+| `@Query("...")` | JPQL 쿼리 (Entity 필드명 사용) |
+| `@Query(value = "...", nativeQuery = true)` | 네이티브 SQL (테이블/컬럼명 사용) |
+| `@Param("name")` | 쿼리 내 `:name` 파라미터에 값 바인딩 |

@@ -66,7 +66,7 @@ export const lectures: Lecture[] = [
       { id: "spring-architecture", title: "핵심 구조", content: springArchitecture },
       { id: "spring-setup", title: "프로젝트 생성", content: springSetup },
       { id: "spring-api", title: "REST API 만들기", content: springApi },
-      { id: "spring-reference", title: "레퍼런스", content: springReference },
+      { id: "spring-reference", title: "어노테이션 & Spring Data JPA", content: springReference },
     ],
   },
   {
