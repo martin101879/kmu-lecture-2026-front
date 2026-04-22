@@ -9,7 +9,7 @@
 - **Project**: Gradle - Kotlin
 - **Language**: Java
 - **Spring Boot**: 3.x.x (최신 stable)
-- **Group**: `ac.kr.kmu`
+- **Group**: `kr.ac.kmu`
 - **Artifact**: `capstone`
 - **Dependencies**:
   - Spring Web
