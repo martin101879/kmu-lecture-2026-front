@@ -15,6 +15,7 @@ import reactIntro from "./react/intro.md?raw";
 import reactArchitecture from "./react/architecture.md?raw";
 import reactSetup from "./react/setup.md?raw";
 import reactComponent from "./react/component.md?raw";
+import reactApi from "./react/api.md?raw";
 import awsOverview from "./aws/overview.md?raw";
 import githubWorkflow from "./github/workflow.md?raw";
 
@@ -81,7 +82,8 @@ export const lectures: Lecture[] = [
       { id: "react-intro", title: "React란?", content: reactIntro },
       { id: "react-architecture", title: "핵심 구조", content: reactArchitecture },
       { id: "react-setup", title: "프로젝트 생성", content: reactSetup },
-      { id: "react-component", title: "컴포넌트 작성", content: reactComponent },
+      { id: "react-component", title: "밸런스 게임 화면 만들기", content: reactComponent },
+      { id: "react-api", title: "API 연동", content: reactApi },
     ],
   },
   {
