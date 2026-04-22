@@ -115,6 +115,9 @@ public interface CommentRepository extends JpaRepository<Comment, Long> {
 메서드 이름 규칙으로 표현하기 어려운 복잡한 쿼리는 `@Query`로 직접 작성할 수 있습니다.
 
 ```java
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
 public interface GameRepository extends JpaRepository<Game, Long> {
 
     // JPQL (엔티티 기준)

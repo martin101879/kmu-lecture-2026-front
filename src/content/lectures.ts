@@ -9,7 +9,10 @@ import springIntro from "./spring-boot/intro.md?raw";
 import springArchitecture from "./spring-boot/architecture.md?raw";
 import springSetup from "./spring-boot/setup.md?raw";
 import springApi from "./spring-boot/api.md?raw";
+import springException from "./spring-boot/exception.md?raw";
 import springReference from "./spring-boot/reference.md?raw";
+import reactIntro from "./react/intro.md?raw";
+import reactArchitecture from "./react/architecture.md?raw";
 import reactSetup from "./react/setup.md?raw";
 import reactComponent from "./react/component.md?raw";
 import awsOverview from "./aws/overview.md?raw";
@@ -65,7 +68,8 @@ export const lectures: Lecture[] = [
       { id: "spring-intro", title: "Spring Boot란?", content: springIntro },
       { id: "spring-architecture", title: "핵심 구조", content: springArchitecture },
       { id: "spring-setup", title: "프로젝트 생성", content: springSetup },
-      { id: "spring-api", title: "REST API 만들기", content: springApi },
+      { id: "spring-api", title: "밸런스 게임 API 만들기", content: springApi },
+      { id: "spring-exception", title: "예외 핸들링", content: springException },
       { id: "spring-reference", title: "어노테이션 & Spring Data JPA", content: springReference },
     ],
   },
@@ -74,6 +78,8 @@ export const lectures: Lecture[] = [
     title: "Frontend (React)",
     icon: "⚛️",
     sections: [
+      { id: "react-intro", title: "React란?", content: reactIntro },
+      { id: "react-architecture", title: "핵심 구조", content: reactArchitecture },
       { id: "react-setup", title: "프로젝트 생성", content: reactSetup },
       { id: "react-component", title: "컴포넌트 작성", content: reactComponent },
     ],
