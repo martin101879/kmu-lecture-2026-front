@@ -18,6 +18,9 @@ import reactComponent from "./react/component.md?raw";
 import reactApi from "./react/api.md?raw";
 import reactCors from "./react/cors.md?raw";
 import awsOverview from "./aws/overview.md?raw";
+import awsDeployFrontend from "./aws/deploy-frontend.md?raw";
+import awsDeployBackend from "./aws/deploy-backend.md?raw";
+import awsReference from "./aws/reference.md?raw";
 import githubWorkflow from "./github/workflow.md?raw";
 
 export interface Section {
@@ -94,6 +97,9 @@ export const lectures: Lecture[] = [
     icon: "☁️",
     sections: [
       { id: "aws-overview", title: "배포 전략", content: awsOverview },
+      { id: "aws-deploy-backend", title: "백엔드 배포", content: awsDeployBackend },
+      { id: "aws-deploy-frontend", title: "프론트엔드 배포", content: awsDeployFrontend },
+      { id: "aws-reference", title: "AWS 주요 용어", content: awsReference },
     ],
   },
   {
