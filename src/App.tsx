@@ -54,13 +54,25 @@ function App() {
     <div className={styles.layout}>
       <button
         className={styles.mobileMenuBtn}
-        onClick={() => setSidebarOpen(!sidebarOpen)}
-        aria-label="메뉴 토글"
+        onClick={() => setSidebarOpen(true)}
+        aria-label="메뉴 열기"
       >
-        {sidebarOpen ? "✕" : "☰"}
+        ☰
       </button>
 
+      <div
+        className={`${styles.backdrop} ${sidebarOpen ? styles.backdropOpen : ""}`}
+        onClick={() => setSidebarOpen(false)}
+      />
+
       <div className={sidebarOpen ? styles.open : styles.sidebarOverlay}>
+        <button
+          className={styles.closeBtn}
+          onClick={() => setSidebarOpen(false)}
+          aria-label="메뉴 닫기"
+        >
+          ✕
+        </button>
         <Sidebar onSelect={handleSelect} />
       </div>
 

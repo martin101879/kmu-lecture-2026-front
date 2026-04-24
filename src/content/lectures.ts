@@ -16,6 +16,7 @@ import reactArchitecture from "./react/architecture.md?raw";
 import reactSetup from "./react/setup.md?raw";
 import reactComponent from "./react/component.md?raw";
 import reactApi from "./react/api.md?raw";
+import reactCors from "./react/cors.md?raw";
 import awsOverview from "./aws/overview.md?raw";
 import githubWorkflow from "./github/workflow.md?raw";
 
@@ -84,6 +85,7 @@ export const lectures: Lecture[] = [
       { id: "react-setup", title: "프로젝트 생성", content: reactSetup },
       { id: "react-component", title: "밸런스 게임 화면 만들기", content: reactComponent },
       { id: "react-api", title: "API 연동", content: reactApi },
+      { id: "react-cors", title: "CORS", content: reactCors },
     ],
   },
   {

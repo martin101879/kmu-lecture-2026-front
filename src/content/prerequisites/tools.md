@@ -31,6 +31,20 @@ xcode-select --install
 brew install git
 ```
 
+### 기본 명령어
+
+| 구분 | 명령어 | 설명 |
+|------|--------|------|
+| 로컬 | `git init` | 저장소 초기화 |
+| 로컬 | `git status` | 현재 상태 확인 |
+| 로컬 | `git add {파일명}` | 변경 파일 스테이징 |
+| 로컬 | `git commit -m "메시지"` | 커밋 |
+| 리모트 | `git clone {url}` | 원격 저장소 복제 |
+| 리모트 | `git push` | 로컬 커밋을 원격에 업로드 |
+| 리모트 | `git pull` | 원격 변경사항을 로컬에 다운로드 |
+
+> 더 자세한 내용은 Git 공식 한글 문서를 참고하세요: [Pro Git Book](https://git-scm.com/book/ko/v2)
+
 ---
 
 ## Docker Desktop
