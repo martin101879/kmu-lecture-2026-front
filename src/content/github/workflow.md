@@ -98,7 +98,7 @@ jobs:
           java-version: 21
 
       # 3. JAR 빌드
-      - run: ./gradlew bootJar
+      - run: ./gradlew build
 
       # 4. AWS 인증
       - uses: aws-actions/configure-aws-credentials@v4

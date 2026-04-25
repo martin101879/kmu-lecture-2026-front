@@ -12,7 +12,7 @@ Spring Boot 앱을 Docker 이미지로 빌드하고, ECR에 push한 뒤, EC2에 
 
 ```
 소스 코드
-    ↓ gradlew bootJar
+    ↓ gradlew build
 JAR 파일
     ↓ docker build
 Docker 이미지 (로컬)
@@ -90,7 +90,7 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 # balance-api 프로젝트에서
 
 # JAR 빌드 (build/libs/balance-api-0.0.1-SNAPSHOT.jar 생성)
-./gradlew bootJar
+./gradlew build
 
 # Docker 이미지 빌드 (EC2의 amd64 아키텍처에 맞춰 빌드)
 docker build --platform linux/amd64 -t balance-api .
