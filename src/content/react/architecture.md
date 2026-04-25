@@ -9,11 +9,11 @@ React의 핵심 동작 원리는 단순합니다. **State가 바뀌면 화면이
 3. **setState**로 State를 변경
 4. 변경된 State가 다시 화면에 반영 → 반복
 
-이 순환을 구성하는 핵심 요소가 **Component**, **State**, **Props**입니다.
+이 순환을 구성하는 핵심 요소가 **Component**, **State**, **Props**입니다. 하나씩 살펴봅니다.
 
 ## Component
 
-React에서 UI는 **컴포넌트**라는 재사용 가능한 조각으로 구성됩니다. 각 컴포넌트는 자신만의 UI와 로직을 가진 독립적인 단위입니다.
+React에서 UI는 **컴포넌트**라는 재사용 가능한 조각으로 구성됩니다. 각 컴포넌트는 자신만의 UI와 로직을 가진 독립적인 단위입니다. Spring Boot에서는 클래스에 `@Component`를 붙여서 컴포넌트를 만들었지만, React에서는 **함수 자체가 컴포넌트**입니다.
 
 ```tsx
 // 가장 간단한 컴포넌트 - 함수가 JSX를 반환
@@ -38,7 +38,7 @@ function App() {
 
 ### JSX
 
-컴포넌트가 반환하는 `<div>`, `<h1>` 같은 문법을 **JSX**라고 합니다. JavaScript 안에서 HTML처럼 UI를 작성할 수 있는 문법입니다.
+컴포넌트가 반환하는 `<div>`, `<h1>` 같은 문법을 **JSX**라고 합니다. JavaScript 안에서 HTML처럼 UI를 작성할 수 있는 문법입니다. HTML처럼 보이지만 실제로는 **React 엘리먼트**(JavaScript 객체)이며, React가 이것을 최종적으로 실제 HTML DOM으로 렌더링합니다.
 
 ```tsx
 function Card() {
@@ -68,7 +68,8 @@ State는 **컴포넌트 내부에서 관리하는 데이터**입니다. State가
 import { useState } from 'react';
 
 function Counter() {
-  // count: 현재 값, setCount: 값을 변경하는 함수
+  // useState(0)은 [현재값, 변경함수] 배열을 반환
+  // const [count, setCount]는 이 배열을 두 변수로 나눠 받는 문법 (구조 분해 할당)
   const [count, setCount] = useState(0);
 
   return (
@@ -99,7 +100,7 @@ function App() {
 }
 
 // 자식 컴포넌트 - Props를 받아서 사용
-interface CardProps {
+interface CardProps {  // TypeScript에서 객체의 타입(구조)을 정의하는 문법
   title: string;
   optionA: string;
   optionB: string;

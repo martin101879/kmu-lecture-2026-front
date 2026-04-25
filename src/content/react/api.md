@@ -132,6 +132,8 @@ useEffect(() => {
 }, []);
 ```
 
+![useEffect 실행 흐름](/images/useeffect-lifecycle.svg)
+
 ### useEffect 동작
 
 ```tsx
@@ -243,24 +245,7 @@ const handleSubmit = async () => {  // async 추가
 
 ## 6. 동작 확인
 
-백엔드와 프론트엔드를 모두 실행합니다.
-
-### 백엔드 실행
-
-```bash
-# balance-api 프로젝트에서
-cd local-dev && docker compose up -d
-cd .. && ./gradlew bootRun
-```
-
-### 프론트엔드 실행
-
-```bash
-# balance-web 프로젝트에서
-npm run dev
-```
-
-### 테스트
+백엔드와 프론트엔드를 모두 실행한 상태에서 확인합니다.
 
 1. `http://localhost:5173`에 접속
 2. 게임 목록이 표시되지 않음

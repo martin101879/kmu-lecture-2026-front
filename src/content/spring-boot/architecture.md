@@ -2,7 +2,7 @@
 
 ## 주요 컴포넌트
 
-Spring Boot 애플리케이션은 역할에 따라 **Controller, Service, Repository** 3가지 컴포넌트로 나뉩니다. 각 컴포넌트는 고유한 책임을 가지며, 이 역할 분리는 어떤 아키텍처를 사용하든 동일하게 적용됩니다.
+웹 애플리케이션은 역할에 따라 **Controller, Service, Repository** 3가지 컴포넌트로 나뉩니다. 이 구조는 Spring Boot에 한정되지 않고, Express(Node.js), Django(Python), Rails(Ruby) 등 대부분의 백엔드 프레임워크에서 동일하게 적용되는 패턴입니다.
 
 ![Spring Boot 컴포넌트 구조](/images/spring-components.svg)
 

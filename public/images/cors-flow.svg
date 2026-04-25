@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 400" fill="none">
+  <style>
+    text { font-family: -apple-system, 'Pretendard', system-ui, sans-serif; }
+  </style>
+
+  <!-- ========== CORS 차단 (상단) ========== -->
+  <text x="330" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#f04452">CORS 설정 전 (차단)</text>
+
+  <!-- 브라우저 -->
+  <rect x="30" y="35" width="140" height="50" rx="10" fill="#EBF4FF" stroke="#3182f6" stroke-width="1.5"/>
+  <text x="100" y="56" text-anchor="middle" font-size="13" font-weight="700" fill="#191f28">브라우저</text>
+  <text x="100" y="74" text-anchor="middle" font-size="10" fill="#3182f6">localhost:5173</text>
+
+  <!-- 1. 요청 화살표 -->
+  <text x="280" y="46" text-anchor="middle" font-size="9" fill="#4e5968">1. 요청</text>
+  <line x1="170" y1="53" x2="318" y2="53" stroke="#8b95a1" stroke-width="1.5"/>
+  <polygon points="318,48 328,53 318,58" fill="#8b95a1"/>
+
+  <!-- 서버 -->
+  <rect x="330" y="35" width="140" height="50" rx="10" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1.5"/>
+  <text x="400" y="56" text-anchor="middle" font-size="13" font-weight="700" fill="#191f28">백엔드 서버</text>
+  <text x="400" y="74" text-anchor="middle" font-size="10" fill="#4CAF50">localhost:8080</text>
+
+  <!-- 2. 응답 화살표 (CORS 헤더 없음) -->
+  <line x1="330" y1="74" x2="172" y2="74" stroke="#f04452" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <polygon points="172,69 162,74 172,79" fill="#f04452"/>
+  <text x="280" y="93" text-anchor="middle" font-size="9" fill="#f04452">2. 응답 (CORS 헤더 없음)</text>
+
+  <!-- 결과: 차단 -->
+  <rect x="505" y="35" width="130" height="50" rx="10" fill="#FFF0F0" stroke="#f04452" stroke-width="1.5"/>
+  <text x="570" y="56" text-anchor="middle" font-size="13" font-weight="700" fill="#f04452">차단</text>
+  <text x="570" y="74" text-anchor="middle" font-size="10" fill="#f04452">응답 데이터 폐기</text>
+
+  <!-- 3. 직각 화살표: 브라우저 → 차단 -->
+  <polyline points="100,85 100,125 570,125 570,85" stroke="#f04452" stroke-width="1.5" fill="none"/>
+  <polygon points="565,90 570,80 575,90" fill="#f04452"/>
+  <text x="335" y="120" text-anchor="middle" font-size="9" fill="#f04452">3. 브라우저가 CORS 헤더 확인 → 허용 출처 없음</text>
+
+  <!-- ========== 구분선 ========== -->
+  <line x1="30" y1="155" x2="630" y2="155" stroke="#e5e8eb" stroke-width="1" stroke-dasharray="6 3"/>
+
+  <!-- ========== CORS 허용 (하단) ========== -->
+  <text x="330" y="180" text-anchor="middle" font-size="12" font-weight="700" fill="#4CAF50">CORS 설정 후 (허용)</text>
+
+  <!-- 브라우저 -->
+  <rect x="30" y="195" width="140" height="50" rx="10" fill="#EBF4FF" stroke="#3182f6" stroke-width="1.5"/>
+  <text x="100" y="216" text-anchor="middle" font-size="13" font-weight="700" fill="#191f28">브라우저</text>
+  <text x="100" y="234" text-anchor="middle" font-size="10" fill="#3182f6">localhost:5173</text>
+
+  <!-- 1. 요청 화살표 -->
+  <text x="280" y="206" text-anchor="middle" font-size="9" fill="#4e5968">1. 요청</text>
+  <line x1="170" y1="213" x2="318" y2="213" stroke="#8b95a1" stroke-width="1.5"/>
+  <polygon points="318,208 328,213 318,218" fill="#8b95a1"/>
+
+  <!-- 서버 -->
+  <rect x="330" y="195" width="140" height="50" rx="10" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1.5"/>
+  <text x="400" y="216" text-anchor="middle" font-size="13" font-weight="700" fill="#191f28">백엔드 서버</text>
+  <text x="400" y="234" text-anchor="middle" font-size="10" fill="#4CAF50">localhost:8080</text>
+
+  <!-- 2. 응답 화살표 (CORS 헤더 포함) -->
+  <line x1="330" y1="234" x2="172" y2="234" stroke="#4CAF50" stroke-width="1.5"/>
+  <polygon points="172,229 162,234 172,239" fill="#4CAF50"/>
+  <text x="280" y="253" text-anchor="middle" font-size="9" fill="#4CAF50">2. 응답 + Access-Control-Allow-Origin</text>
+
+  <!-- 결과: 허용 -->
+  <rect x="505" y="195" width="130" height="50" rx="10" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1.5"/>
+  <text x="570" y="216" text-anchor="middle" font-size="13" font-weight="700" fill="#4CAF50">허용</text>
+  <text x="570" y="234" text-anchor="middle" font-size="10" fill="#4CAF50">응답 데이터 전달</text>
+
+  <!-- 3. 직각 화살표: 브라우저 → 허용 -->
+  <polyline points="100,245 100,285 570,285 570,245" stroke="#4CAF50" stroke-width="1.5" fill="none"/>
+  <polygon points="565,250 570,240 575,250" fill="#4CAF50"/>
+  <text x="335" y="280" text-anchor="middle" font-size="9" fill="#4CAF50">3. 브라우저가 CORS 헤더 확인 → 허용 출처 일치</text>
+
+  <!-- ========== 핵심 포인트 ========== -->
+  <rect x="80" y="320" width="500" height="55" rx="10" fill="#f2f4f6" stroke="#e5e8eb" stroke-width="1"/>
+  <text x="330" y="342" text-anchor="middle" font-size="11" fill="#4e5968">에러는 프론트엔드(브라우저)에서 발생하지만, 해결은 백엔드(서버)에서 해야 합니다.</text>
+  <text x="330" y="362" text-anchor="middle" font-size="11" font-weight="600" fill="#191f28">서버가 응답 헤더에 허용 출처를 포함하면 브라우저가 응답을 전달합니다.</text>
+</svg>

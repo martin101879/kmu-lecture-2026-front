@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 340" fill="none">
+  <style>
+    text { font-family: -apple-system, 'Pretendard', system-ui, sans-serif; }
+  </style>
+
+  <!-- 프론트엔드 라벨 -->
+  <text x="430" y="25" text-anchor="middle" font-size="11" font-weight="600" fill="#3182f6">프론트엔드</text>
+
+  <!-- CloudFront -->
+  <rect x="260" y="35" width="140" height="70" rx="10" fill="#EBF4FF" stroke="#3182f6" stroke-width="1.5"/>
+  <text x="330" y="65" text-anchor="middle" font-size="14" font-weight="700" fill="#191f28">CloudFront</text>
+  <text x="330" y="85" text-anchor="middle" font-size="10" fill="#4e5968">CDN + HTTPS</text>
+
+  <!-- 화살표 CF → S3 -->
+  <line x1="400" y1="70" x2="460" y2="70" stroke="#3182f6" stroke-width="1.5"/>
+  <polygon points="460,65 470,70 460,75" fill="#3182f6"/>
+
+  <!-- S3 -->
+  <rect x="475" y="35" width="140" height="70" rx="10" fill="#EBF4FF" stroke="#3182f6" stroke-width="1.5"/>
+  <text x="545" y="65" text-anchor="middle" font-size="14" font-weight="700" fill="#191f28">S3</text>
+  <text x="545" y="85" text-anchor="middle" font-size="10" fill="#4e5968">React 정적 파일</text>
+
+  <!-- 사용자 (정중앙) -->
+  <rect x="20" y="100" width="140" height="70" rx="10" fill="#f2f4f6" stroke="#e5e8eb" stroke-width="1.5"/>
+  <text x="90" y="132" text-anchor="middle" font-size="14" font-weight="700" fill="#191f28">사용자</text>
+  <text x="90" y="152" text-anchor="middle" font-size="10" fill="#8b95a1">브라우저</text>
+
+  <!-- 프론트엔드 화살표 (대각선, 간격 확보) -->
+  <line x1="160" y1="115" x2="255" y2="75" stroke="#3182f6" stroke-width="1.5" stroke-dasharray="6 3"/>
+  <polygon points="252,80 262,73 256,71" fill="#3182f6"/>
+  <text x="195" y="82" text-anchor="middle" font-size="9" fill="#3182f6">정적 파일</text>
+
+  <!-- 백엔드 화살표 (대각선, 간격 확보) -->
+  <line x1="160" y1="155" x2="255" y2="200" stroke="#4CAF50" stroke-width="1.5" stroke-dasharray="6 3"/>
+  <polygon points="252,195 262,202 256,204" fill="#4CAF50"/>
+  <text x="195" y="195" text-anchor="middle" font-size="9" fill="#4CAF50">API 호출</text>
+
+  <!-- 백엔드 라벨 -->
+  <text x="430" y="160" text-anchor="middle" font-size="11" font-weight="600" fill="#4CAF50">백엔드</text>
+
+  <!-- ALB -->
+  <rect x="260" y="170" width="140" height="70" rx="10" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1.5"/>
+  <text x="330" y="200" text-anchor="middle" font-size="14" font-weight="700" fill="#191f28">ALB</text>
+  <text x="330" y="220" text-anchor="middle" font-size="10" fill="#4e5968">자동 생성 (Express)</text>
+
+  <!-- 화살표 ALB → ECS -->
+  <line x1="400" y1="205" x2="460" y2="205" stroke="#4CAF50" stroke-width="1.5"/>
+  <polygon points="460,200 470,205 460,210" fill="#4CAF50"/>
+
+  <!-- ECS -->
+  <rect x="475" y="170" width="140" height="70" rx="10" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1.5"/>
+  <text x="545" y="200" text-anchor="middle" font-size="14" font-weight="700" fill="#191f28">ECS Express</text>
+  <text x="545" y="220" text-anchor="middle" font-size="10" fill="#4e5968">Spring Boot (Docker)</text>
+
+  <!-- 화살표 ECS → RDS -->
+  <line x1="615" y1="205" x2="655" y2="205" stroke="#FF9800" stroke-width="1.5"/>
+  <polygon points="655,200 665,205 655,210" fill="#FF9800"/>
+
+  <!-- RDS -->
+  <rect x="670" y="170" width="100" height="70" rx="10" fill="#FFF3E0" stroke="#FF9800" stroke-width="1.5"/>
+  <text x="720" y="200" text-anchor="middle" font-size="14" font-weight="700" fill="#191f28">RDS</text>
+  <text x="720" y="220" text-anchor="middle" font-size="10" fill="#4e5968">MySQL</text>
+
+  <!-- 하단 설명 -->
+  <text x="390" y="300" text-anchor="middle" font-size="11" fill="#8b95a1">CloudFormation으로 자동 생성되는 인프라</text>
+</svg>

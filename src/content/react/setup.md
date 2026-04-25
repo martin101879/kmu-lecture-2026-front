@@ -171,13 +171,9 @@ npm run dev
 
 > 코드를 수정하면 브라우저가 자동으로 반영됩니다 (HMR). 새로고침할 필요가 없습니다.
 
-## 실습: 보일러플레이트 정리 및 첫 번째 컴포넌트
+## 실습: 보일러플레이트 정리
 
-Vite가 생성한 기본 코드를 정리하고, 간단한 컴포넌트를 만들어 동작을 확인합니다.
-
-### 1. App 정리
-
-기본 보일러플레이트를 제거하고 깔끔하게 시작합니다. 기존 `App.css`를 삭제하고 `App.module.css`를 생성합니다.
+Vite가 생성한 기본 코드(로고, 카운터 등)를 제거하고 깔끔하게 시작합니다. 기존 `App.css`를 삭제하고 `App.module.css`를 생성합니다.
 
 ```css
 /* src/App.module.css */
@@ -209,91 +205,6 @@ function App() {
 export default App;
 ```
 
-### 2. Counter 컴포넌트 만들기 
+브라우저에서 `http://localhost:5173`에 접속하여 "밸런스 게임" 제목이 표시되면 준비 완료입니다.
 
-`src/components/` 폴더를 생성하고 Counter 컴포넌트를 만듭니다. CSS Modules도 함께 생성합니다.
-
-```css
-/* src/components/Counter.module.css */
-.counter {
-  margin-top: 16px;
-}
-
-.count {
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.button {
-  padding: 8px 16px;
-  margin-right: 8px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-}
-```
-
-```tsx
-// src/components/Counter.tsx
-import { useState } from 'react';
-import styles from './Counter.module.css';
-
-function Counter() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <div className={styles.counter}>
-      <p className={styles.count}>클릭 횟수: {count}</p>
-      <button className={styles.button} onClick={() => setCount(count + 1)}>+1</button>
-      <button className={styles.button} onClick={() => setCount(0)}>초기화</button>
-    </div>
-  );
-}
-
-export default Counter;
-```
-
-### 3. App에서 Counter 사용
-
-```tsx
-// src/App.tsx
-import styles from './App.module.css';
-import Counter from './components/Counter';
-
-function App() {
-  return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>밸런스 게임</h1>
-      <p>당신의 선택은?</p>
-      <Counter />
-    </div>
-  );
-}
-
-export default App;
-```
-
-### 현재 파일 구조
-
-```
-src/
-├── main.tsx
-├── App.tsx
-├── App.module.css
-├── index.css
-└── components/
-    ├── Counter.tsx
-    └── Counter.module.css
-```
-
-### 4. 동작 확인
-
-브라우저에서 `http://localhost:5173`에 접속합니다.
-
-- "밸런스 게임" 제목이 표시되는지 확인
-- +1 버튼을 클릭하면 숫자가 증가하는지 확인
-- 초기화 버튼을 클릭하면 0으로 돌아가는지 확인
-
-> 축하합니다! 첫 번째 React 컴포넌트가 동작합니다.
-> State가 변경되면 화면이 자동으로 업데이트되는 것을 직접 확인했습니다.
+> 다음 단계 **밸런스 게임 화면 만들기**에서 본격적으로 컴포넌트를 작성합니다.

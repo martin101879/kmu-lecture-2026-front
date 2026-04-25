@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 360" fill="none">
+  <style>
+    text { font-family: -apple-system, 'Pretendard', system-ui, sans-serif; }
+  </style>
+
+  <!-- 제목 -->
+  <text x="340" y="25" text-anchor="middle" font-size="13" font-weight="700" fill="#191f28">Spring Boot 시작 시 DI 동작 과정</text>
+
+  <!-- Step 1: 스캔 -->
+  <rect x="20" y="50" width="200" height="90" rx="10" fill="#E3F2FD" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="120" y="75" text-anchor="middle" font-size="12" font-weight="700" fill="#1976D2">1. 컴포넌트 스캔</text>
+  <text x="120" y="97" text-anchor="middle" font-size="11" fill="#4e5968">@Component가 붙은</text>
+  <text x="120" y="113" text-anchor="middle" font-size="11" fill="#4e5968">클래스를 자동으로 찾음</text>
+  <text x="120" y="133" text-anchor="middle" font-size="10" fill="#8b95a1">@SpringBootApplication</text>
+
+  <!-- 화살표 1→2 -->
+  <line x1="220" y1="95" x2="240" y2="95" stroke="#8b95a1" stroke-width="1.5"/>
+  <polygon points="240,90 250,95 240,100" fill="#8b95a1"/>
+
+  <!-- Step 2: 객체 생성 -->
+  <rect x="250" y="50" width="200" height="90" rx="10" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1.5"/>
+  <text x="350" y="75" text-anchor="middle" font-size="12" font-weight="700" fill="#4CAF50">2. 객체 생성</text>
+  <text x="350" y="97" text-anchor="middle" font-size="11" fill="#4e5968">각 클래스의 인스턴스를</text>
+  <text x="350" y="113" text-anchor="middle" font-size="11" fill="#4e5968">Spring이 대신 생성</text>
+  <text x="350" y="133" text-anchor="middle" font-size="10" fill="#8b95a1">new 대신 Spring이 관리</text>
+
+  <!-- 화살표 2→3 -->
+  <line x1="450" y1="95" x2="470" y2="95" stroke="#8b95a1" stroke-width="1.5"/>
+  <polygon points="470,90 480,95 470,100" fill="#8b95a1"/>
+
+  <!-- Step 3: 주입 -->
+  <rect x="480" y="50" width="180" height="90" rx="10" fill="#FFF3E0" stroke="#FF9800" stroke-width="1.5"/>
+  <text x="570" y="75" text-anchor="middle" font-size="12" font-weight="700" fill="#FF9800">3. 의존성 주입</text>
+  <text x="570" y="97" text-anchor="middle" font-size="11" fill="#4e5968">생성자에 필요한 객체를</text>
+  <text x="570" y="113" text-anchor="middle" font-size="11" fill="#4e5968">자동으로 넣어줌 (DI)</text>
+  <text x="570" y="133" text-anchor="middle" font-size="10" fill="#8b95a1">생성자 주입</text>
+
+  <!-- 구분선 -->
+  <line x1="40" y1="170" x2="640" y2="170" stroke="#e5e8eb" stroke-width="1" stroke-dasharray="6 3"/>
+  <text x="340" y="195" text-anchor="middle" font-size="12" font-weight="600" fill="#8b95a1">실제 예시</text>
+
+  <!-- PgClient -->
+  <rect x="40" y="215" width="150" height="55" rx="10" fill="#FFF3E0" stroke="#FF9800" stroke-width="1.5"/>
+  <text x="115" y="240" text-anchor="middle" font-size="13" font-weight="700" fill="#191f28">PgClient</text>
+  <text x="115" y="258" text-anchor="middle" font-size="10" fill="#FF9800">@Component</text>
+
+  <!-- 화살표 PgClient → PaymentService -->
+  <line x1="190" y1="242" x2="225" y2="242" stroke="#8b95a1" stroke-width="1.5"/>
+  <polygon points="225,237 235,242 225,247" fill="#8b95a1"/>
+  <text x="208" y="233" text-anchor="middle" font-size="9" fill="#8b95a1">주입</text>
+
+  <!-- PaymentService -->
+  <rect x="240" y="215" width="170" height="55" rx="10" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1.5"/>
+  <text x="325" y="240" text-anchor="middle" font-size="13" font-weight="700" fill="#191f28">PaymentService</text>
+  <text x="325" y="258" text-anchor="middle" font-size="10" fill="#4CAF50">@Component</text>
+
+  <!-- 화살표 PaymentService → OrderService -->
+  <line x1="410" y1="242" x2="445" y2="242" stroke="#8b95a1" stroke-width="1.5"/>
+  <polygon points="445,237 455,242 445,247" fill="#8b95a1"/>
+  <text x="428" y="233" text-anchor="middle" font-size="9" fill="#8b95a1">주입</text>
+
+  <!-- OrderService -->
+  <rect x="460" y="215" width="170" height="55" rx="10" fill="#EBF4FF" stroke="#3182f6" stroke-width="1.5"/>
+  <text x="545" y="240" text-anchor="middle" font-size="13" font-weight="700" fill="#191f28">OrderService</text>
+  <text x="545" y="258" text-anchor="middle" font-size="10" fill="#3182f6">@Component</text>
+
+  <!-- 생성 순서 설명 -->
+  <text x="115" y="300" text-anchor="middle" font-size="11" font-weight="600" fill="#FF9800">먼저 생성</text>
+  <text x="325" y="300" text-anchor="middle" font-size="11" font-weight="600" fill="#4CAF50">PgClient 주입받아 생성</text>
+  <text x="545" y="300" text-anchor="middle" font-size="11" font-weight="600" fill="#3182f6">PaymentService 주입받아 생성</text>
+
+  <!-- 하단 설명 -->
+  <rect x="120" y="320" width="440" height="30" rx="8" fill="#f2f4f6" stroke="#e5e8eb" stroke-width="1"/>
+  <text x="340" y="340" text-anchor="middle" font-size="11" font-weight="600" fill="#191f28">개발자는 생성자에 필요한 타입만 선언 → Spring이 자동으로 주입</text>
+</svg>

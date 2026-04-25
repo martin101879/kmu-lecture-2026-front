@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 300" fill="none">
+  <style>
+    text { font-family: -apple-system, 'Pretendard', system-ui, sans-serif; }
+  </style>
+
+  <!-- Infrastructure (맨 아래) -->
+  <rect x="40" y="240" width="440" height="45" rx="8" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1.5"/>
+  <text x="260" y="267" text-anchor="middle" font-size="13" font-weight="700" fill="#2E7D32">Infrastructure (하드웨어)</text>
+
+  <!-- Host Operating System -->
+  <rect x="40" y="185" width="440" height="45" rx="8" fill="#E3F2FD" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="260" y="212" text-anchor="middle" font-size="13" font-weight="700" fill="#1565C0">Host Operating System (macOS / Windows)</text>
+
+  <!-- Docker Engine -->
+  <rect x="40" y="130" width="440" height="45" rx="8" fill="#3182f6"/>
+  <text x="260" y="157" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Docker Engine</text>
+
+  <!-- 컨테이너 영역 (점선 박스) -->
+  <rect x="30" y="10" width="460" height="115" rx="10" fill="none" stroke="#B0BEC5" stroke-width="1.5" stroke-dasharray="6 3"/>
+  <text x="260" y="30" text-anchor="middle" font-size="11" font-weight="600" fill="#8b95a1">Containers</text>
+
+  <!-- 컨테이너: MySQL -->
+  <rect x="55" y="40" width="120" height="75" rx="8" fill="#1976D2"/>
+  <text x="115" y="72" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">MySQL</text>
+  <text x="115" y="92" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)">:3306</text>
+
+  <!-- 컨테이너: Redis -->
+  <rect x="195" y="40" width="120" height="75" rx="8" fill="#1976D2"/>
+  <text x="255" y="72" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">Redis</text>
+  <text x="255" y="92" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)">:6379</text>
+
+  <!-- 컨테이너: Kafka -->
+  <rect x="335" y="40" width="120" height="75" rx="8" fill="#1976D2"/>
+  <text x="395" y="72" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">Kafka</text>
+  <text x="395" y="92" text-anchor="middle" font-size="10" fill="rgba(255,255,255,0.8)">:9092</text>
+</svg>

@@ -162,21 +162,83 @@ Docker 이미지 빌드 → ECR에 push → Kubernetes가 컨테이너 관리
 | Spring Boot | O | O | O | **O** | O | X |
 | 적합한 규모 | 소규모 | 중규모 | 중~대규모 | **중규모** | 대규모 | 이벤트 처리 |
 
+## 프론트엔드 배포 옵션
+
+React 앱은 `npm run build`로 **정적 파일** (HTML, CSS, JS)을 생성합니다. 이 파일을 사용자에게 서빙하는 방법은 여러 가지가 있습니다.
+
+### 백엔드 서버에 포함
+
+빌드 결과물을 백엔드 프로젝트에 넣어 하나의 서버에서 서빙합니다.
+
+```
+npm run build → dist/ 파일을 Spring Boot의 static/ 폴더에 복사
+→ Spring Boot가 API + 정적 파일 모두 서빙
+```
+
+| 장점 | 단점 |
+|------|------|
+| 서버 하나로 운영 | 프론트/백엔드 배포가 항상 함께 |
+| CORS 불필요 (같은 서버) | 프론트만 수정해도 백엔드 재배포 필요 |
+| 구성이 단순 | CDN 없이 느릴 수 있음 |
+
+### 웹서버 배포
+
+Nginx 같은 웹서버에서 정적 파일을 서빙합니다. EC2에 직접 설치하거나 Docker 이미지로 실행합니다.
+
+```
+방법 1: EC2에 Nginx 설치 → dist/ 파일 복사
+방법 2: Nginx Docker 이미지에 dist/ 파일 포함 → ECS에서 실행
+```
+
+| 장점 | 단점 |
+|------|------|
+| 세부 설정 가능 (캐시, 리다이렉트 등) | 서버 관리 필요 |
+| Docker로 실행 가능 | CDN 직접 구성 필요 |
+
+### S3 + CloudFront
+
+정적 파일을 S3에 업로드하고 CloudFront (CDN)로 전 세계에 배포합니다.
+
+```
+npm run build → dist/ 파일을 S3에 업로드 → CloudFront가 캐시 + HTTPS 제공
+```
+
+| 장점 | 단점 |
+|------|------|
+| 서버 관리 불필요 | 프론트/백엔드 도메인이 분리됨 (CORS 필요) |
+| CDN으로 전 세계에서 빠름 | |
+| HTTPS 자동 | |
+| 비용이 매우 저렴 | |
+
+### 비교 요약
+
+| | 백엔드에 포함 | 웹서버 (Nginx) | S3 + CloudFront |
+|---|---|---|---|
+| 서버 관리 | 백엔드와 동일 | 직접 관리 | **불필요** |
+| CDN | 없음 | 별도 구성 | **자동** |
+| HTTPS | 백엔드 설정 | 직접 설정 | **자동** |
+| 프론트/백엔드 분리 배포 | 불가 | 가능 | **가능** |
+| CORS | 불필요 | 필요할 수 있음 | 필요 |
+| 적합한 경우 | 소규모, 프로토타입 | 커스텀 서버 설정 필요 시 | **대부분의 SPA** |
+
 ## 이 강의에서의 선택
 
-이 강의에서는 **ECS Express Mode**를 사용합니다.
-
-- Docker를 이미 배웠으므로 자연스럽게 연결
-- 로컬(Docker)과 서버(ECS)의 실행 환경이 동일
-- ALB, HTTPS, Auto Scaling 자동 구성으로 인프라 설정 최소화
-- 필요 시 ECS의 모든 기능에 접근 가능
+| 영역 | 선택 | 이유 |
+|------|------|------|
+| 백엔드 | **ECS Express Mode** | Docker 연결, 서버 관리 불필요, ALB/HTTPS 자동 |
+| 프론트엔드 | **S3 + CloudFront** | 서버 관리 불필요, CDN + HTTPS 자동, 저렴 |
+| 데이터베이스 | **RDS (MySQL)** | 관리형 DB, 백업 자동 |
 
 ### 전체 아키텍처
 
+![전체 아키텍처](/images/aws-architecture.svg)
+
 ```
-프론트엔드:  S3 → CloudFront (CDN + HTTPS)
-백엔드:     ALB → ECS Fargate (Docker 컨테이너)
-데이터베이스: RDS (MySQL)
+사용자 → CloudFront → S3 (React 정적 파일)
+   ↓
+사용자 → ALB → ECS Express Mode (Spring Boot API)
+                      ↓
+                    RDS (MySQL)
 ```
 
 > 이 인프라는 강의 시작 시 **CloudFormation**으로 자동 생성됩니다.

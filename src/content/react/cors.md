@@ -13,7 +13,7 @@ API 코드는 정상인데, 브라우저가 요청을 **차단**하고 있습니
 
 ## CORS란?
 
-브라우저는 보안을 위해 **다른 출처(Origin)**로의 요청을 기본적으로 차단합니다. 출처는 프로토콜 + 호스트 + 포트 조합으로 판단합니다.
+브라우저는 보안을 위해 **다른 출처** (Origin)로의 요청을 기본적으로 차단합니다. 출처는 프로토콜 + 호스트 + 포트 조합으로 판단합니다.
 
 ```
 http://localhost:5173  (프론트엔드)
@@ -22,18 +22,18 @@ http://localhost:8080  (백엔드)
                 포트가 다름 → 다른 Origin → CORS 차단
 ```
 
-| 요청 | 같은 Origin? | 결과 |
-|------|------------|------|
-| `localhost:5173` → `localhost:5173` | 같음 | 허용 |
-| `localhost:5173` → `localhost:8080` | 다름 (포트) | **차단** |
-| `example.com` → `api.example.com` | 다름 (호스트) | **차단** |
-| `http://` → `https://` | 다름 (프로토콜) | **차단** |
+| 출발 | 도착 | 같은 Origin? | 결과 |
+|------|------|------------|------|
+| `http://localhost:5173` | `http://localhost:5173` | 같음 | 허용 |
+| `http://localhost:5173` | `http://localhost:8080` | 다름 (포트) | **차단** |
+| `http://example.com` | `http://api.example.com` | 다름 (호스트) | **차단** |
+| `http://example.com` | `https://example.com` | 다름 (프로토콜) | **차단** |
 
 CORS(Cross-Origin Resource Sharing)는 서버가 "이 출처에서의 요청은 허용한다"고 **명시적으로 허가**하는 방식입니다.
 
 ### CORS가 혼란스러운 이유
 
-에러는 **프론트엔드(브라우저)**에서 발생하지만, 해결은 **백엔드(서버)**에서 해야 합니다.
+에러는 **프론트엔드** (브라우저)에서 발생하지만, 해결은 **백엔드** (서버)에서 해야 합니다.
 
 ```
 프론트엔드 개발자: "내 코드는 정상인데 왜 안 되지?"
@@ -102,12 +102,11 @@ public class WebConfig implements WebMvcConfigurer {
 
 ## 정리
 
-```
-CORS 해결 전:  브라우저 → 백엔드 요청 → 브라우저가 차단 (응답 폐기)
-CORS 해결 후:  브라우저 → 백엔드 요청 → 서버가 허용 헤더 반환 → 브라우저가 응답 전달
-```
+![CORS 요청 흐름](/images/cors-flow.svg)
 
 | 파일 | 역할 |
 |------|------|
 | `application.yml` | 허용할 출처 정의 |
 | `WebConfig.java` | Spring MVC에 CORS 설정 등록 |
+
+> **배포 시 주의**: 현재 `allowed-origins`가 `http://localhost:5173`으로 설정되어 있습니다. AWS에 배포할 때는 CloudFront 도메인(예: `https://web.honggildong.cecil1018.click`)으로 변경해야 합니다. 여러 출처를 허용하려면 쉼표로 구분하여 설정할 수 있습니다.

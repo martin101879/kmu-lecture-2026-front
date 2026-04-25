@@ -13,13 +13,15 @@ import springException from "./spring-boot/exception.md?raw";
 import springReference from "./spring-boot/reference.md?raw";
 import reactIntro from "./react/intro.md?raw";
 import reactArchitecture from "./react/architecture.md?raw";
+import reactTools from "./react/tools.md?raw";
 import reactSetup from "./react/setup.md?raw";
 import reactComponent from "./react/component.md?raw";
 import reactApi from "./react/api.md?raw";
 import reactCors from "./react/cors.md?raw";
 import awsOverview from "./aws/overview.md?raw";
-import awsDeployFrontend from "./aws/deploy-frontend.md?raw";
+import awsDockerDeploy from "./aws/docker-deploy.md?raw";
 import awsDeployBackend from "./aws/deploy-backend.md?raw";
+import awsDeployFrontend from "./aws/deploy-frontend.md?raw";
 import awsReference from "./aws/reference.md?raw";
 import githubWorkflow from "./github/workflow.md?raw";
 
@@ -85,6 +87,7 @@ export const lectures: Lecture[] = [
     sections: [
       { id: "react-intro", title: "React란?", content: reactIntro },
       { id: "react-architecture", title: "핵심 구조", content: reactArchitecture },
+      { id: "react-tools", title: "개발 도구", content: reactTools },
       { id: "react-setup", title: "프로젝트 생성", content: reactSetup },
       { id: "react-component", title: "밸런스 게임 화면 만들기", content: reactComponent },
       { id: "react-api", title: "API 연동", content: reactApi },
@@ -97,6 +100,7 @@ export const lectures: Lecture[] = [
     icon: "☁️",
     sections: [
       { id: "aws-overview", title: "배포 전략", content: awsOverview },
+      { id: "aws-docker-deploy", title: "Docker와 배포", content: awsDockerDeploy },
       { id: "aws-deploy-backend", title: "백엔드 배포", content: awsDeployBackend },
       { id: "aws-deploy-frontend", title: "프론트엔드 배포", content: awsDeployFrontend },
       { id: "aws-reference", title: "AWS 주요 용어", content: awsReference },
