@@ -36,21 +36,21 @@
   <text x="495" y="77" text-anchor="middle" font-size="12" font-weight="700" fill="#191f28">ECR</text>
   <text x="495" y="94" text-anchor="middle" font-size="10" fill="#4CAF50">이미지 저장소</text>
 
-  <!-- 화살표 ECR→ECS -->
+  <!-- 화살표 ECR→EC2 -->
   <line x1="555" y1="80" x2="575" y2="80" stroke="#8b95a1" stroke-width="1.5"/>
   <polygon points="575,75 585,80 575,85" fill="#8b95a1"/>
   <text x="565" y="71" text-anchor="middle" font-size="8" fill="#8b95a1">pull</text>
 
-  <!-- ECS -->
+  <!-- EC2 -->
   <rect x="590" y="55" width="110" height="50" rx="8" fill="#FFF3E0" stroke="#FF9800" stroke-width="1.5"/>
-  <text x="645" y="77" text-anchor="middle" font-size="12" font-weight="700" fill="#191f28">ECS</text>
-  <text x="645" y="94" text-anchor="middle" font-size="10" fill="#FF9800">컨테이너 실행</text>
+  <text x="645" y="77" text-anchor="middle" font-size="12" font-weight="700" fill="#191f28">EC2</text>
+  <text x="645" y="94" text-anchor="middle" font-size="10" fill="#FF9800">docker run</text>
 
   <!-- 하단 명령어 순서 -->
   <text x="85" y="140" text-anchor="middle" font-size="10" fill="#4e5968">./gradlew bootJar</text>
   <text x="245" y="140" text-anchor="middle" font-size="10" fill="#4e5968">docker build -t .</text>
   <text x="495" y="140" text-anchor="middle" font-size="10" fill="#4e5968">docker push</text>
-  <text x="645" y="140" text-anchor="middle" font-size="10" fill="#4e5968">ecs update-service</text>
+  <text x="645" y="140" text-anchor="middle" font-size="10" fill="#4e5968">SSH → docker run</text>
 
   <!-- 순서 번호 -->
   <circle cx="85" cy="158" r="10" fill="#3182f6"/>

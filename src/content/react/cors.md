@@ -109,4 +109,4 @@ public class WebConfig implements WebMvcConfigurer {
 | `application.yml` | 허용할 출처 정의 |
 | `WebConfig.java` | Spring MVC에 CORS 설정 등록 |
 
-> **배포 시 주의**: 현재 `allowed-origins`가 `http://localhost:5173`으로 설정되어 있습니다. AWS에 배포할 때는 CloudFront 도메인(예: `https://web.honggildong.cecil1018.click`)으로 변경해야 합니다. 여러 출처를 허용하려면 쉼표로 구분하여 설정할 수 있습니다.
+> **배포 시 주의**: 현재 `allowed-origins`가 `http://localhost:5173`으로 설정되어 있습니다. AWS에 배포할 때는 CloudFront 도메인(예: `https://web.martin.cecil1018.click`)으로 변경해야 합니다. 여러 출처를 허용하려면 쉼표로 구분하여 설정할 수 있습니다.

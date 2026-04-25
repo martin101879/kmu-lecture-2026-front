@@ -55,7 +55,7 @@ Docker 이미지 빌드 (앱 + Java + 설정 모두 포함) → 어디서든 실
 | 목적 | MySQL을 로컬에서 실행 | Spring Boot 앱을 서버에서 실행 |
 | 이미지 | `mysql:8.0` (남이 만든 것) | `balance-api` (우리가 만든 것) |
 | 도구 | `docker-compose.yml` | `Dockerfile` |
-| 실행 위치 | 내 PC | AWS (ECS) |
+| 실행 위치 | 내 PC | AWS (EC2) |
 
 ```
 로컬:  Docker Hub에서 mysql:8.0 이미지 pull → 내 PC에서 실행
@@ -115,7 +115,7 @@ ECR         → AWS 전용 비공개 이미지 저장소 (내 앱 이미지)
 | | Docker Hub | ECR |
 |---|---|---|
 | 공개/비공개 | 둘 다 가능 | 비공개 (내 AWS 계정만 접근) |
-| ECS 연동 | 가능하지만 느림 | 같은 AWS 내라 빠름 |
+| AWS 내부 연동 | 가능하지만 느림 | 같은 AWS 내라 빠름 |
 | 비용 | 무료 (공개) | 500MB 무료 |
 
 ![Docker 배포 흐름](/images/docker-deploy-flow.svg)

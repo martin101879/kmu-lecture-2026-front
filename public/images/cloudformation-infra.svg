@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 370" fill="none">
+  <style>
+    text { font-family: -apple-system, 'Pretendard', system-ui, sans-serif; }
+  </style>
+
+  <!-- 제목 -->
+  <text x="310" y="22" text-anchor="middle" font-size="13" font-weight="700" fill="#191f28">CloudFormation으로 생성되는 리소스</text>
+
+  <!-- 네트워크 그룹 -->
+  <rect x="20" y="40" width="185" height="150" rx="10" fill="#EBF4FF" stroke="#3182f6" stroke-width="1.5"/>
+  <text x="112" y="60" text-anchor="middle" font-size="11" font-weight="700" fill="#3182f6">네트워크</text>
+
+  <rect x="35" y="70" width="155" height="24" rx="5" fill="#fff" stroke="#3182f6" stroke-width="1"/>
+  <text x="112" y="86" text-anchor="middle" font-size="10" fill="#191f28">VPC</text>
+
+  <rect x="35" y="100" width="155" height="24" rx="5" fill="#fff" stroke="#3182f6" stroke-width="1"/>
+  <text x="112" y="116" text-anchor="middle" font-size="10" fill="#191f28">Subnet x 2 (AZ A, B)</text>
+
+  <rect x="35" y="130" width="155" height="24" rx="5" fill="#fff" stroke="#3182f6" stroke-width="1"/>
+  <text x="112" y="146" text-anchor="middle" font-size="10" fill="#191f28">Internet Gateway</text>
+
+  <rect x="35" y="160" width="155" height="24" rx="5" fill="#fff" stroke="#3182f6" stroke-width="1"/>
+  <text x="112" y="176" text-anchor="middle" font-size="10" fill="#191f28">Route Table</text>
+
+  <!-- 보안 그룹 -->
+  <rect x="218" y="40" width="185" height="150" rx="10" fill="#f2f4f6" stroke="#e5e8eb" stroke-width="1.5"/>
+  <text x="310" y="60" text-anchor="middle" font-size="11" font-weight="700" fill="#4e5968">보안</text>
+
+  <rect x="233" y="70" width="155" height="24" rx="5" fill="#fff" stroke="#e5e8eb" stroke-width="1"/>
+  <text x="310" y="86" text-anchor="middle" font-size="10" fill="#191f28">Security Group x 3</text>
+
+  <rect x="233" y="100" width="155" height="24" rx="5" fill="#fff" stroke="#e5e8eb" stroke-width="1"/>
+  <text x="310" y="116" text-anchor="middle" font-size="10" fill="#191f28">IAM Role</text>
+
+  <!-- 컴퓨팅 그룹 -->
+  <rect x="416" y="40" width="185" height="150" rx="10" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1.5"/>
+  <text x="508" y="60" text-anchor="middle" font-size="11" font-weight="700" fill="#4CAF50">컴퓨팅</text>
+
+  <rect x="431" y="70" width="155" height="24" rx="5" fill="#fff" stroke="#4CAF50" stroke-width="1"/>
+  <text x="508" y="86" text-anchor="middle" font-size="10" fill="#191f28">EC2 (t3.micro)</text>
+
+  <rect x="431" y="100" width="155" height="24" rx="5" fill="#fff" stroke="#4CAF50" stroke-width="1"/>
+  <text x="508" y="116" text-anchor="middle" font-size="10" fill="#191f28">ECR (이미지 저장소)</text>
+
+  <!-- 로드 밸런서 그룹 -->
+  <rect x="20" y="205" width="185" height="150" rx="10" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1.5"/>
+  <text x="112" y="225" text-anchor="middle" font-size="11" font-weight="700" fill="#4CAF50">로드 밸런서</text>
+
+  <rect x="35" y="235" width="155" height="24" rx="5" fill="#fff" stroke="#4CAF50" stroke-width="1"/>
+  <text x="112" y="251" text-anchor="middle" font-size="10" fill="#191f28">ALB</text>
+
+  <rect x="35" y="265" width="155" height="24" rx="5" fill="#fff" stroke="#4CAF50" stroke-width="1"/>
+  <text x="112" y="281" text-anchor="middle" font-size="10" fill="#191f28">Target Group</text>
+
+  <rect x="35" y="295" width="155" height="24" rx="5" fill="#fff" stroke="#4CAF50" stroke-width="1"/>
+  <text x="112" y="311" text-anchor="middle" font-size="10" fill="#191f28">HTTPS Listener</text>
+
+  <!-- 도메인 + 인증서 그룹 -->
+  <rect x="218" y="205" width="185" height="150" rx="10" fill="#F3E5F5" stroke="#9C27B0" stroke-width="1.5"/>
+  <text x="310" y="225" text-anchor="middle" font-size="11" font-weight="700" fill="#9C27B0">도메인 + 인증서</text>
+
+  <rect x="233" y="235" width="155" height="24" rx="5" fill="#fff" stroke="#9C27B0" stroke-width="1"/>
+  <text x="310" y="251" text-anchor="middle" font-size="10" fill="#191f28">Route 53 레코드</text>
+
+  <rect x="233" y="265" width="155" height="24" rx="5" fill="#fff" stroke="#9C27B0" stroke-width="1"/>
+  <text x="310" y="281" text-anchor="middle" font-size="10" fill="#191f28">ACM 인증서</text>
+
+  <!-- 데이터베이스 그룹 -->
+  <rect x="416" y="205" width="185" height="150" rx="10" fill="#FFF3E0" stroke="#FF9800" stroke-width="1.5"/>
+  <text x="508" y="225" text-anchor="middle" font-size="11" font-weight="700" fill="#FF9800">데이터베이스</text>
+
+  <rect x="431" y="235" width="155" height="24" rx="5" fill="#fff" stroke="#FF9800" stroke-width="1"/>
+  <text x="508" y="251" text-anchor="middle" font-size="10" fill="#191f28">RDS (MySQL 8.0)</text>
+
+  <rect x="431" y="265" width="155" height="24" rx="5" fill="#fff" stroke="#FF9800" stroke-width="1"/>
+  <text x="508" y="281" text-anchor="middle" font-size="10" fill="#191f28">DB Subnet Group</text>
+
+  <!-- 하단 요약 -->
+  <text x="310" y="370" text-anchor="middle" font-size="11" fill="#8b95a1">CloudFormation 템플릿 1개로 위 리소스를 한 번에 생성/삭제합니다</text>
+</svg>

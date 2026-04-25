@@ -56,15 +56,7 @@ export const lectures: Lecture[] = [
     icon: "📋",
     sections: [
       { id: "intro-overview", title: "개요", content: introOverview },
-    ],
-  },
-  {
-    id: "start",
-    title: "강의 시작",
-    icon: "🚩",
-    sections: [
       { id: "start-modern-framework", title: "프레임워크의 핵심 원칙", content: startModernFramework },
-      { id: "start-aws-setup", title: "AWS 인프라 사전 셋업", content: startAwsSetup },
     ],
   },
   {
@@ -99,7 +91,8 @@ export const lectures: Lecture[] = [
     title: "AWS 인프라 & 배포",
     icon: "☁️",
     sections: [
-      { id: "aws-overview", title: "배포 개요", content: awsOverview },
+      { id: "aws-overview", title: "배포 방식", content: awsOverview },
+      { id: "aws-setup", title: "인프라 셋업", content: startAwsSetup },
       { id: "aws-docker-deploy", title: "Docker와 배포", content: awsDockerDeploy },
       { id: "aws-deploy-backend", title: "백엔드 배포", content: awsDeployBackend },
       { id: "aws-deploy-frontend", title: "프론트엔드 배포", content: awsDeployFrontend },

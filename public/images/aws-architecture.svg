@@ -41,18 +41,18 @@
   <!-- ALB -->
   <rect x="260" y="170" width="140" height="70" rx="10" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1.5"/>
   <text x="330" y="200" text-anchor="middle" font-size="14" font-weight="700" fill="#191f28">ALB</text>
-  <text x="330" y="220" text-anchor="middle" font-size="10" fill="#4e5968">자동 생성 (Express)</text>
+  <text x="330" y="220" text-anchor="middle" font-size="10" fill="#4e5968">로드 밸런서</text>
 
-  <!-- 화살표 ALB → ECS -->
+  <!-- 화살표 ALB → EC2 -->
   <line x1="400" y1="205" x2="460" y2="205" stroke="#4CAF50" stroke-width="1.5"/>
   <polygon points="460,200 470,205 460,210" fill="#4CAF50"/>
 
-  <!-- ECS -->
+  <!-- EC2 -->
   <rect x="475" y="170" width="140" height="70" rx="10" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1.5"/>
-  <text x="545" y="200" text-anchor="middle" font-size="14" font-weight="700" fill="#191f28">ECS Express</text>
+  <text x="545" y="200" text-anchor="middle" font-size="14" font-weight="700" fill="#191f28">EC2</text>
   <text x="545" y="220" text-anchor="middle" font-size="10" fill="#4e5968">Spring Boot (Docker)</text>
 
-  <!-- 화살표 ECS → RDS -->
+  <!-- 화살표 EC2 → RDS -->
   <line x1="615" y1="205" x2="655" y2="205" stroke="#FF9800" stroke-width="1.5"/>
   <polygon points="655,200 665,205 655,210" fill="#FF9800"/>
 
